@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { format } from "date-fns";
-import { ArrowRight } from "lucide-react";
 import { Card } from "../ui/card";
 
 export interface NewsPost {
@@ -20,18 +19,13 @@ export function LatestNewsSection({ posts }: LatestNewsSectionProps) {
   if (!posts || posts.length === 0) return null;
 
   return (
-    <section className="py-16 bg-white dark:bg-transparent">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-3xl font-semibold">Останні новини</h2>
-          <Link
-            href="/posts"
-            className="text-blue-600 hover:underline flex items-center gap-1 text-sm font-medium"
-          >
-            Всі новини <ArrowRight size={16} />
-          </Link>
+    <section className="bg-[#f3f6f9] py-[70px] md:py-[114px]">
+      <div className="mx-auto max-w-[1200px] px-4">
+        <div className="mb-14 text-center">
+          <h2 className="font-serif text-3xl font-black text-[#0f2444] md:text-[36px]">Останні новини</h2>
+          <div className="fk-divider mx-auto mt-7" />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => {
             const date = post.date ? new Date(post.date) : null;
             const formattedDate =
@@ -42,44 +36,45 @@ export function LatestNewsSection({ posts }: LatestNewsSectionProps) {
             return (
               <Card
                 key={post.url}
-                className="overflow-hidden group hover:shadow-md transition-shadow"
+                className="group overflow-hidden rounded-none border-0 bg-white shadow-none transition-shadow hover:shadow-xl"
               >
                 {post.heroImg && (
                   <Link href={post.url}>
-                    <div className="aspect-video overflow-hidden">
+                    <div className="aspect-[1.55] overflow-hidden">
                       <Image
                         src={post.heroImg}
                         alt={post.title}
                         width={400}
                         height={225}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                   </Link>
                 )}
-                <div className="p-5">
+                <div className="p-7">
                   {formattedDate && (
-                    <p className="text-xs text-gray-400 mb-2">{formattedDate}</p>
+                    <p className="mb-3 text-xs font-bold uppercase tracking-widest text-[#f0c64a]">{formattedDate}</p>
                   )}
-                  <h3 className="font-semibold text-base leading-snug mb-3">
+                  <h3 className="mb-5 font-serif text-lg font-bold leading-snug text-[#0f2444]">
                     <Link
                       href={post.url}
-                      className="hover:text-blue-600 transition-colors"
+                      className="transition-colors hover:text-[#f0c64a]"
                     >
                       {post.title}
                     </Link>
                   </h3>
                   <Link
                     href={post.url}
-                    className="text-blue-600 text-sm flex items-center gap-1 hover:underline"
+                    className="text-sm font-bold uppercase tracking-wide text-[#0f2444] hover:text-[#f0c64a]"
                   >
-                    Детальніше <ArrowRight size={14} />
+                    Детальніше
                   </Link>
                 </div>
               </Card>
             );
           })}
         </div>
+        <div className="mt-14 text-center"><Link href="/posts" className="fk-btn-primary inline-block">Всі новини</Link></div>
       </div>
     </section>
   );

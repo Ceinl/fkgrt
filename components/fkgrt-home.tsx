@@ -21,70 +21,76 @@ const gallery = [
 export function FkgrtHome({ latestPosts }: { latestPosts: NewsPost[] }) {
   return (
     <>
-      <section className="relative min-h-[560px] overflow-hidden bg-[#102c57] text-white">
-        <img src={remote("/images/slide-02-1920x810.jpg")} alt="Коледж" className="absolute inset-0 h-full w-full object-cover opacity-55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07152d] via-[#102c57]/80 to-transparent" />
-        <div className="relative mx-auto flex min-h-[560px] max-w-7xl items-center px-4 py-24">
-          <div className="max-w-3xl">
-            <p className="mb-5 font-serif text-sm font-bold uppercase tracking-[0.35em] text-[#f0c64a]">З 1930 року</p>
-            <h1 className="font-serif text-4xl font-black leading-tight md:text-6xl">Інвестиції в освіту та інновації в геологічній галузі</h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-100">Коледж готує фахових молодших бакалаврів для геологічної, видобувної, екологічної, машинобудівної та транспортної галузей України.</p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link href="/vstup" className="bg-[#f0c64a] px-7 py-4 text-sm font-bold uppercase tracking-wide text-[#102c57] hover:bg-white">Вступна кампанія</Link>
-              <Link href="/about" className="border border-white/70 px-7 py-4 text-sm font-bold uppercase tracking-wide text-white hover:bg-white hover:text-[#102c57]">Про коледж</Link>
+      <section className="relative min-h-[760px] overflow-hidden bg-[#102c57] text-white">
+        <img src={remote("/images/slide-02-1920x810.jpg")} alt="Коледж" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="relative mx-auto flex min-h-[760px] max-w-[1200px] items-center px-4 pb-20 pt-64 md:pt-72">
+          <div className="max-w-[850px] text-center md:text-left">
+            <h1 className="font-serif text-4xl font-black leading-tight md:text-[64px]">Інвестиції в освіту</h1>
+            <p className="mt-9 max-w-3xl text-[19px] font-light leading-8 text-white">Коледж є колективним членом Спілки геологів України, Спілки буровиків України, Українського товариства охорони природи, Українського мінералогічного товариства та Міжнародної асоціації науково-технічного і ділового співробітництва з геофізичних досліджень і робіт у свердловинах.</p>
+            <div className="mt-12 flex flex-wrap justify-center gap-5 md:justify-start">
+              <Link href="/vstup" className="fk-btn-primary">Вступна кампанія</Link>
+              <Link href="/about" className="fk-btn-light">Про коледж</Link>
             </div>
           </div>
         </div>
+        <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 gap-3">
+          <span className="h-3 w-3 rounded-full bg-white" />
+          <span className="h-3 w-3 rounded-full border border-white/80" />
+          <span className="h-3 w-3 rounded-full border border-white/80" />
+        </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-[380px_1fr] lg:items-center">
+      <section className="bg-white py-[70px] md:py-[114px]">
+        <div className="mx-auto grid max-w-[1200px] gap-12 px-4 text-center md:grid-cols-[40%_1fr] md:items-center md:text-left">
           <Link href="/about" className="mx-auto block max-w-xs"><img src={remote("/images/kgrt.png")} alt="КГРТ" className="w-full" /></Link>
           <div>
-            <h2 className="font-serif text-3xl font-black text-[#102c57] md:text-4xl">Декілька слів про фаховий коледж геологорозвідувальних технологій</h2>
-            <div className="my-6 h-1 w-20 bg-[#f0c64a]" />
-            <div className="space-y-4 text-justify leading-8 text-slate-700">
-              <p>Відокремлений структурний підрозділ "Фаховий коледж геологорозвідувальних технологій Київського національного університету імені Тараса Шевченка" є одним із найстаріших геологічних навчальних закладів країни.</p>
-              <p>Коледж створено на базі Київського геологорозвідувального технікуму та є структурним підрозділом Київського національного університету імені Тараса Шевченка з 2012 року.</p>
+            <h2 className="font-serif text-3xl font-black leading-snug text-[#0f2444] md:text-[36px]">Декілька слів про фаховий коледж геологорозвідувальних технологій</h2>
+            <div className="fk-divider mx-auto my-7 md:mx-0" />
+            <div className="space-y-4 text-justify text-[15px] leading-8 text-[#555]">
+              <p><i>Відокремлений структурний підрозділ </i>"<b>Фаховий коледж геологорозвідувальних технологій Київського національного університету імені Тараса Шевченка</b>" є одним із найстаріших геологічних навчальних закладів країни і є предметом гордості усіх, хто в ньому працює і навчається.</p>
+              <p>Коледж геологорозвідувальних технологій <b>(КГРТ)</b> створено на базі <b>Київського геологорозвідувального технікуму</b> (<b>1930 рік заснування</b>) та є структурним підрозділом Київського національного університету імені Тараса Шевченка з 2012 року.</p>
+              <p><b>Візія коледжу</b> - флагман геологічної фахової передвищої освіти країни, здатний генерувати сучасні геологічні знання та забезпечувати їх трансфер.</p>
               <p>Це єдиний навчальний заклад України, що готує фахових молодших бакалаврів з усіх геологорозвідувальних спеціальностей.</p>
             </div>
-            <Link href="/about" className="mt-8 inline-flex items-center gap-2 bg-[#102c57] px-6 py-3 text-sm font-bold uppercase tracking-wide text-white hover:bg-[#f0c64a] hover:text-[#102c57]">Детальніше <ArrowRight size={16} /></Link>
+            <Link href="/about" className="fk-btn-outline mt-8 inline-flex items-center gap-2">Детальніше <ArrowRight size={16} /></Link>
           </div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#102c57] py-20 text-white">
-        <img src={remote("/images/home-01-846x1002.jpg")} alt="Спеціальності" className="absolute left-0 top-0 hidden h-full w-1/2 object-cover opacity-25 lg:block" />
-        <div className="relative mx-auto grid max-w-7xl px-4 lg:grid-cols-[0.9fr_1.1fr]">
+      <section className="relative overflow-hidden bg-[#0f2444] py-[70px] text-white md:py-[114px]">
+        <img src={remote("/images/home-01-846x1002.jpg")} alt="Спеціальності" className="absolute left-0 top-0 hidden h-full w-[44%] object-cover lg:block" />
+        <div className="absolute inset-0 bg-[url('https://fkgrt.knu.ua/images/pattern.png')] opacity-10" />
+        <div className="relative mx-auto grid max-w-[1200px] px-4 lg:grid-cols-[0.95fr_1.05fr]">
           <div />
           <div>
-            <h2 className="font-serif text-3xl font-black md:text-4xl">Наші спеціальності</h2>
-            <div className="my-6 h-1 w-20 bg-white" />
-            <div className="space-y-5">
+            <h2 className="font-serif text-3xl font-black md:text-[36px]">Наші спеціальності</h2>
+            <div className="my-7 h-[3px] w-20 bg-white" />
+            <div className="space-y-10">
               {specialties.map(([title, href, image]) => (
-                <Link key={title} href={href} className="group flex overflow-hidden bg-white text-[#102c57] shadow-lg">
-                  <img src={remote(image)} alt="" className="h-24 w-32 object-cover transition-transform group-hover:scale-105" />
-                  <span className="flex flex-1 items-center px-5 font-serif text-lg font-bold">{title}</span>
+                <Link key={title} href={href} className="group flex min-h-[120px] overflow-hidden bg-white text-[#0f2444] shadow-xl">
+                  <span className="block w-[170px] shrink-0 bg-cover bg-center transition-transform group-hover:scale-105" style={{ backgroundImage: `url(${remote(image)})` }} />
+                  <span className="flex flex-1 items-center px-7 font-serif text-lg font-bold leading-snug">{title}</span>
                 </Link>
               ))}
             </div>
-            <Link href="/about/spetsialnosti" className="mt-8 inline-block bg-[#f0c64a] px-6 py-3 text-sm font-bold uppercase tracking-wide text-[#102c57] hover:bg-white">Подивитись все</Link>
+            <Link href="/about/spetsialnosti" className="fk-btn-primary mt-12 inline-block">Подивитись все</Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-[linear-gradient(rgba(16,44,87,.86),rgba(16,44,87,.86)),url('https://fkgrt.knu.ua/images/slide-01-1920x810.jpg')] bg-cover bg-center py-24 text-center text-white">
-        <h2 className="font-serif text-3xl font-black md:text-5xl">Довіряють понад 50000 випускників</h2>
-        <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-100">Приєднуйтесь до нашої спільноти КГРТ, щоб досягти успіху.</p>
-        <Link href="/vstup" className="mt-9 inline-block bg-[#f0c64a] px-8 py-4 text-sm font-bold uppercase tracking-wide text-[#102c57] hover:bg-white">Почати</Link>
+      <section className="bg-[linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://fkgrt.knu.ua/video/bg-video-2-lg.jpg')] bg-cover bg-center py-[100px] text-center text-white md:py-[160px]">
+        <h2 className="font-serif text-3xl font-black md:text-[42px]">Довіряють понад 50000 випускників</h2>
+        <p className="mx-auto mt-7 max-w-2xl text-lg text-white/90">Приєднуйтесь до нашої спільноти КГРТ щоб досягти успіху.</p>
+        <Link href="/vstup" className="fk-btn-primary mt-12 inline-block">Почати</Link>
       </section>
 
       <LatestNewsSection posts={latestPosts} />
 
-      <section className="bg-[#eef3f8] py-20">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-center font-serif text-3xl font-black text-[#102c57] md:text-4xl">Галерея</h2>
-          <div className="mx-auto my-6 h-1 w-20 bg-[#f0c64a]" />
+      <section className="bg-[#f3f6f9] py-[70px] md:py-[114px]">
+        <div className="mx-auto max-w-[1200px] px-4">
+          <h2 className="text-center font-serif text-3xl font-black text-[#0f2444] md:text-[36px]">Галерея</h2>
+          <div className="fk-divider mx-auto my-7" />
           <div className="grid gap-6 md:grid-cols-3">
             {gallery.map(([title, image]) => (
               <a key={image} href={remote(image)} className="group relative block overflow-hidden bg-[#102c57]">
@@ -93,7 +99,7 @@ export function FkgrtHome({ latestPosts }: { latestPosts: NewsPost[] }) {
               </a>
             ))}
           </div>
-          <div className="mt-10 text-center"><Link href="/gallery" className="inline-block bg-[#102c57] px-6 py-3 text-sm font-bold uppercase tracking-wide text-white hover:bg-[#f0c64a] hover:text-[#102c57]">Всі фотографії</Link></div>
+          <div className="mt-14 text-center"><Link href="/gallery" className="fk-btn-primary inline-block">Всі фотографії</Link></div>
         </div>
       </section>
     </>

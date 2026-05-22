@@ -72,36 +72,38 @@ export const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <header className="relative z-30 border-b border-[#d7dce5] bg-white text-[#182747] shadow-sm">
-      <div className="bg-[#102c57] text-xs text-white">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-2">
-          <a className="flex items-center gap-2" href="tel:+380445285355"><Phone size={14} />+38(044)528-53-55</a>
-          <a className="flex items-center gap-2" href="https://goo.gl/maps/L3ZsN2dDtXbyokkH7"><MapPin size={14} />вул. Василя Тютюнника, 9, м. Київ</a>
-          <a className="flex items-center gap-2" href="mailto:fkgrt@knu.ua"><Mail size={14} />fkgrt@knu.ua</a>
-          <a className="ml-auto font-semibold uppercase" href="/en">EN</a>
+    <header className="fk-header absolute inset-x-0 top-0 z-30 text-white">
+      <div className="border-b border-white/20 bg-[#0f2444]/85 text-[12px]">
+        <div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-x-5 gap-y-2 px-4 py-3">
+          <a className="flex items-center gap-2 hover:text-[#f0c64a]" href="tel:+380445285355"><Phone size={14} />+38(044)528-53-55</a>
+          <a className="hidden items-center gap-2 hover:text-[#f0c64a] md:flex" href="tel:+380445281691">+38(044)528-16-91</a>
+          <a className="flex items-center gap-2 hover:text-[#f0c64a]" href="https://goo.gl/maps/L3ZsN2dDtXbyokkH7"><MapPin size={14} />вул. Василя Тютюнника, 9, м. Київ, 03150</a>
+          <a className="flex items-center gap-2 hover:text-[#f0c64a]" href="mailto:fkgrt@knu.ua"><Mail size={14} />fkgrt@knu.ua</a>
+          <a className="hidden hover:text-[#f0c64a] lg:inline" href="/about/docs/%D0%9F%D1%81%D0%B8%D1%85%D0%BE%D0%BB%D0%BE%D0%B3%20%D0%BA%D0%BE%D1%80%D0%B8%D1%81%D0%BD%D1%96%20%D0%BF%D0%BE%D1%81%D0%B8%D0%BB%D0%B0%D0%BD%D0%BD%D1%8F%20%D1%81%D0%BA%D1%80%D0%B8%D0%BD%D1%8C%D0%BA%D0%B0%20%D0%B4%D0%BE%D0%B2%D1%96%D1%80%D0%B8.pdf">Скринька довіри</a>
+          <a className="ml-auto font-semibold uppercase hover:text-[#f0c64a]" href="/en">EN</a>
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-5">
+      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-4 py-7">
         <Link href="/" className="flex min-w-0 items-center gap-4">
-          <img src="https://fkgrt.knu.ua/images/kgrt.png" alt="КГРТ" className="h-16 w-16 object-contain sm:h-20 sm:w-20" />
-          <img src="https://fkgrt.knu.ua/about/gerb.jpg" alt="КНУ" className="hidden h-16 w-16 object-contain sm:block sm:h-20 sm:w-20" />
+          <img src="https://fkgrt.knu.ua/images/kgrt.png" alt="КГРТ" className="h-16 w-16 object-contain sm:h-[86px] sm:w-[86px]" />
+          <img src="https://fkgrt.knu.ua/about/gerb.jpg" alt="КНУ" className="hidden h-16 w-16 object-contain sm:block sm:h-[86px] sm:w-[86px]" />
           <span className="min-w-0">
-            <span className="block text-[10px] uppercase tracking-[0.22em] text-[#8c6a19]">Відокремлений структурний підрозділ</span>
-            <span className="block max-w-3xl font-serif text-lg font-black uppercase leading-tight sm:text-2xl">Фаховий коледж геологорозвідувальних технологій</span>
-            <span className="block text-xs text-slate-600 sm:text-sm">Київського національного університету імені Тараса Шевченка</span>
+            <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-white/80">Відокремлений структурний підрозділ</span>
+            <span className="block max-w-3xl font-serif text-lg font-black uppercase leading-tight tracking-wide text-white sm:text-[26px]">Фаховий коледж геологорозвідувальних технологій</span>
+            <span className="block text-xs text-white/80 sm:text-sm">Київського національного університету імені Тараса Шевченка</span>
           </span>
         </Link>
-        <button className="rounded border border-[#102c57] p-2 lg:hidden" onClick={() => setIsOpen((value) => !value)} aria-label="Меню">
+        <button className="rounded border border-white/60 bg-[#0f2444]/50 p-2 lg:hidden" onClick={() => setIsOpen((value) => !value)} aria-label="Меню">
           {isOpen ? <X /> : <Menu />}
         </button>
       </div>
 
-      <nav className={`${isOpen ? "block" : "hidden"} border-t border-[#d7dce5] bg-[#f7f8fb] lg:block`}>
-        <div className="mx-auto flex max-w-7xl flex-col lg:flex-row lg:items-center lg:justify-center">
+      <nav className={`${isOpen ? "block" : "hidden"} bg-white text-[#2f2f2f] shadow-xl lg:block lg:bg-white/95`}>
+        <div className="mx-auto flex max-w-[1200px] flex-col lg:flex-row lg:items-center lg:justify-center">
           {navGroups.map((group) => (
             <div key={group.label} className="group relative">
-              <Link href={group.href} className="block px-5 py-4 text-sm font-bold uppercase tracking-wide hover:bg-[#102c57] hover:text-white">{group.label}</Link>
+              <Link href={group.href} className="block px-5 py-[18px] text-[13px] font-bold uppercase tracking-wide hover:bg-[#f0c64a] hover:text-[#0f2444]">{group.label}</Link>
               <div className="static hidden min-w-72 bg-white shadow-xl group-hover:block lg:absolute lg:left-0 lg:top-full">
                 {group.items.map(([label, href]) => (
                   <Link key={href} href={href} className="block border-b border-slate-100 px-5 py-3 text-sm text-slate-700 hover:bg-[#f0c64a] hover:text-[#102c57]">{label}</Link>
@@ -109,8 +111,8 @@ export const Header = () => {
               </div>
             </div>
           ))}
-          <Link href="/gallery" className="block px-5 py-4 text-sm font-bold uppercase tracking-wide hover:bg-[#102c57] hover:text-white">Галерея</Link>
-          <Link href="/posts" className="block px-5 py-4 text-sm font-bold uppercase tracking-wide hover:bg-[#102c57] hover:text-white">Новини</Link>
+          <Link href="/gallery" className="block px-5 py-[18px] text-[13px] font-bold uppercase tracking-wide hover:bg-[#f0c64a] hover:text-[#0f2444]">Галерея</Link>
+          <Link href="/posts" className="block px-5 py-[18px] text-[13px] font-bold uppercase tracking-wide hover:bg-[#f0c64a] hover:text-[#0f2444]">Новини</Link>
         </div>
       </nav>
     </header>
