@@ -1,7 +1,14 @@
 import type { NextConfig } from 'next'
- 
+
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1]
+const isGithubPages = process.env.GITHUB_ACTIONS === 'true' && repoName
+
 const nextConfig: NextConfig = {
+  basePath: isGithubPages ? `/${repoName}` : '',
+  assetPrefix: isGithubPages ? `/${repoName}/` : '',
+  output: 'export',
   images: {
+    unoptimized: Boolean(isGithubPages),
     remotePatterns: [
       {
         protocol: 'https',
