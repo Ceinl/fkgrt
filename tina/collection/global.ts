@@ -1,7 +1,6 @@
 import type { Collection } from "tinacms";
 import { ColorPickerInput } from "../fields/color";
 import { iconSchema } from "../fields/icon";
-import { icon } from "mermaid/dist/rendering-util/rendering-elements/shapes/icon.js";
 
 const Global: Collection = {
   label: "Global",
@@ -67,13 +66,75 @@ const Global: Collection = {
       name: "footer",
       fields: [
         {
+          type: "string",
+          label: "College Name",
+          name: "collegeName",
+        },
+        {
+          type: "string",
+          label: "College Subtitle",
+          name: "collegeSubtitle",
+        },
+        {
+          type: "object",
+          label: "Contacts",
+          name: "contacts",
+          fields: [
+            {
+              type: "string",
+              label: "Phone Numbers",
+              name: "phones",
+            },
+            {
+              type: "string",
+              label: "Address",
+              name: "address",
+            },
+            {
+              type: "string",
+              label: "Email",
+              name: "email",
+            },
+            {
+              type: "string",
+              label: "Google Maps URL",
+              name: "mapsUrl",
+            },
+          ],
+        },
+        {
+          type: "object",
+          label: "Useful Links",
+          name: "usefulLinks",
+          list: true,
+          ui: {
+            itemProps: (item: any) => ({ label: item?.label }),
+            defaultItem: {
+              label: "Link Label",
+              url: "https://example.com",
+            },
+          },
+          fields: [
+            {
+              type: "string",
+              label: "Label",
+              name: "label",
+            },
+            {
+              type: "string",
+              label: "URL",
+              name: "url",
+            },
+          ],
+        },
+        {
           type: "object",
           label: "Social Links",
           name: "social",
           list: true,
           ui: {
             itemProps: (item) => {
-              return { label: item?.icon?.name || 'undefined' };
+              return { label: item?.icon?.name || "undefined" };
             },
           },
           fields: [

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import client from '@/tina/__generated__/client';
 import Layout from '@/components/layout/layout';
 import { Section } from '@/components/layout/section';
+import { GalleryPageContent, LegacyPageContent, knownLegacyRoots } from '@/components/legacy-pages';
 import ClientPage from './client-page';
 
 export const revalidate = 300;
@@ -21,6 +22,15 @@ export default async function Page({
       relativePath: `${filepath}.mdx`,
     });
   } catch (error) {
+    const root = resolvedParams.urlSegments[0];
+    if (knownLegacyRoots.has(root)) {
+      return (
+        <Layout>
+          {root === 'gallery' ? <GalleryPageContent /> : <LegacyPageContent filepath={filepath} />}
+        </Layout>
+      );
+    }
+
     notFound();
   }
 

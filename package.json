@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "tinacms dev -c \"next dev --turbopack\"",
-    "build": "tinacms build && next build",
-    "build-local": "tinacms build --local --skip-indexing --skip-cloud-checks && next build",
-    "start": "tinacms build && next start",
+    "dev": "NODE_OPTIONS=--no-experimental-webstorage tinacms dev -c \"next dev --turbopack\"",
+    "build": "NODE_OPTIONS=--no-experimental-webstorage tinacms build && next build",
+    "build-local": "NODE_OPTIONS=--no-experimental-webstorage tinacms build --local --skip-indexing --skip-cloud-checks && next build",
+    "start": "NODE_OPTIONS=--no-experimental-webstorage tinacms build && next start",
     "export": "npm run build && next export",
     "lint": "biome lint",
-    "dev:build": "next build"
+    "dev:build": "NODE_OPTIONS=--no-experimental-webstorage next build"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
