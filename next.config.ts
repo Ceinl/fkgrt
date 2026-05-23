@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   assetPrefix: isGithubPages ? `/${repoName}/` : '',
   output: 'export',
   images: {
-    unoptimized: Boolean(isGithubPages),
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

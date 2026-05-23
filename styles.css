@@ -145,17 +145,30 @@
     background: transparent;
     border: 2px solid #fff;
     color: #fff;
-    font-size: 13px;
+    font-size: 19px;
     font-weight: 800;
-    letter-spacing: .08em;
-    padding: 15px 30px;
-    text-transform: uppercase;
+    padding: 14px 33px;
     transition: .2s ease;
   }
 
   .fk-btn-light:hover {
     background: #fff;
     color: #0f2444;
+  }
+
+  .fk-btn-blue {
+    background: #3687aa;
+    border: 2px solid #3687aa;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+    padding: 16px 34px;
+    transition: .2s ease;
+  }
+
+  .fk-btn-blue:hover {
+    background: #071a44;
+    border-color: #071a44;
   }
 
   .fk-btn-outline {

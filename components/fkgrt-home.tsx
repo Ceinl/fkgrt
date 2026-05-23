@@ -21,20 +21,20 @@ const gallery = [
 export function FkgrtHome({ latestPosts }: { latestPosts: NewsPost[] }) {
   return (
     <>
-      <section className="relative min-h-[760px] overflow-hidden bg-[#102c57] text-white">
-        <img src={remote("/images/slide-02-1920x810.jpg")} alt="Коледж" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="relative mx-auto flex min-h-[760px] max-w-[1200px] items-center px-4 pb-20 pt-64 md:pt-72">
-          <div className="max-w-[850px] text-center md:text-left">
-            <h1 className="font-serif text-4xl font-black leading-tight md:text-[64px]">Інвестиції в освіту</h1>
-            <p className="mt-9 max-w-3xl text-[19px] font-light leading-8 text-white">Коледж є колективним членом Спілки геологів України, Спілки буровиків України, Українського товариства охорони природи, Українського мінералогічного товариства та Міжнародної асоціації науково-технічного і ділового співробітництва з геофізичних досліджень і робіт у свердловинах.</p>
+      <section className="relative min-h-[705px] overflow-hidden bg-[#102c57] text-white">
+        <img src={remote("/images/slide-01-1920x810.jpg")} alt="Коледж" className="absolute inset-0 h-full w-full object-cover object-center" />
+        <div className="absolute inset-0 bg-black/28" />
+        <div className="relative mx-auto flex min-h-[705px] max-w-[1200px] items-center px-4 pb-20 pt-12">
+          <div className="max-w-[760px] text-center md:text-left">
+            <h1 className="font-serif text-4xl font-black leading-tight md:text-[58px]">Інновації в геологічній освіті.</h1>
+            <p className="mt-8 max-w-3xl text-[20px] font-bold leading-8 text-white">Сьогодні коледж – один з провідних закладів фахової передвищої освіти, який готує фахових молодших бакалаврів геологічної галузі. За матеріально-технічним, кадровим і методичним забезпеченням освітнього процесу заклад освіти відповідає вимогам сьогодення.</p>
             <div className="mt-12 flex flex-wrap justify-center gap-5 md:justify-start">
-              <Link href="/vstup" className="fk-btn-primary">Вступна кампанія</Link>
+              <Link href="/about/spetsialnosti" className="fk-btn-blue">Спеціальності</Link>
               <Link href="/about" className="fk-btn-light">Про коледж</Link>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 gap-3">
+        <div className="absolute bottom-11 left-[18%] flex gap-4">
           <span className="h-3 w-3 rounded-full bg-white" />
           <span className="h-3 w-3 rounded-full border border-white/80" />
           <span className="h-3 w-3 rounded-full border border-white/80" />
