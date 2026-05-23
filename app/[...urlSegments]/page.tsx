@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import client from '@/tina/__generated__/client';
 import Layout from '@/components/layout/layout';
 import { Section } from '@/components/layout/section';
-import { GalleryPageContent, LegacyPageContent, knownLegacyRoots } from '@/components/legacy-pages';
+import { GalleryPageContent, LegacyPageContent, knownLegacyRoots, legacyRoutePaths } from '@/components/legacy-pages';
 import ClientPage from './client-page';
 
 export const revalidate = 300;
@@ -70,5 +70,10 @@ export async function generateStaticParams() {
     .filter((x) => x.urlSegments.length >= 1)
     .filter((x) => !x.urlSegments.every((x) => x === 'home')); // exclude the home page
 
-  return params;
+  const tinaPaths = new Set(params.map((param) => param.urlSegments.join('/')));
+  const legacyParams = legacyRoutePaths
+    .filter((path) => !tinaPaths.has(path))
+    .map((path) => ({ urlSegments: path.split('/') }));
+
+  return [...params, ...legacyParams];
 }
