@@ -14,10 +14,10 @@ export default async function Home() {
   // Fetch latest posts for the news section on the homepage
   let latestPosts: NewsPost[] = [];
   try {
-    const postsData = await client.queries.postConnection({
-      sort: "date",
-      last: 6,
-    });
+      const postsData = await client.queries.postConnection({
+        sort: "date",
+        last: 9,
+      });
     const edges = postsData.data.postConnection.edges || [];
     latestPosts = edges
       .filter(Boolean)

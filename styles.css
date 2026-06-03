@@ -119,6 +119,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans), Arial, sans-serif;
   }
 }
 
@@ -174,11 +175,12 @@
   .fk-btn-outline {
     border: 2px solid #0f2444;
     color: #0f2444;
-    font-size: 13px;
+    font-size: 20px;
     font-weight: 800;
-    letter-spacing: .08em;
-    padding: 13px 26px;
-    text-transform: uppercase;
+    letter-spacing: 0;
+    padding: 14px 34px;
+    text-transform: none;
+    box-shadow: 0 4px 10px rgba(15, 36, 68, .22);
     transition: .2s ease;
   }
 
@@ -191,5 +193,62 @@
     background: #0f2444;
     height: 3px;
     width: 80px;
+  }
+
+  .legacy-breadcrumb {
+    background: linear-gradient(rgba(7, 26, 68, .75), rgba(7, 26, 68, .75)), url('/images/bg-07-1920x660.jpg') center/cover;
+    color: #fff;
+    padding: 70px 16px 60px;
+    text-align: center;
+  }
+
+  .legacy-breadcrumb h1 {
+    font-family: var(--font-serif), Georgia, serif;
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  .legacy-content {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.8;
+    padding: 70px 0 114px;
+  }
+
+  .legacy-content h2,
+  .legacy-content h3 {
+    color: #2d2d2d;
+    font-family: var(--font-serif), Georgia, serif;
+    font-weight: 900;
+  }
+
+  .legacy-link-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    color: #2d2d2d;
+    display: block;
+    font-family: var(--font-serif), Georgia, serif;
+    font-size: 18px;
+    font-weight: 900;
+    padding: 22px 24px;
+    transition: .2s ease;
+  }
+
+  .legacy-link-card:hover {
+    background: #3687aa;
+    border-color: #3687aa;
+    color: #fff;
+  }
+}
+
+@keyframes legacyFadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }

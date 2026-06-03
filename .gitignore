@@ -27,3 +27,12 @@ yarn-debug.log*
 yarn-error.log*
 
 .tina/__generated__
+
+# generated/local assets
+tsconfig.tsbuildinfo
+public/about/
+public/files/
+public/favicon-32x32.png
+public/images/
+public/upload/
+public/video/

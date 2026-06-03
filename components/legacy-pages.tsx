@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-const remote = (path: string) => `https://fkgrt.knu.ua${path}`;
-
 const galleryItems = [
   ["Вишиванка - генетичний код української нації", "/upload/iblock/6b2/%D0%94%D0%921.jpg"],
   ["Вишиванка - генетичний код української нації", "/upload/iblock/7ae/%D0%94%D0%923.jpg"],
@@ -202,20 +200,24 @@ export const knownLegacyRoots = new Set(["en", "gallery", ...Object.keys(legacyP
 
 export function GalleryPageContent() {
   return (
-    <section className="bg-[#eef3f8] py-16">
-      <div className="mx-auto max-w-7xl px-4">
-        <h1 className="text-center font-serif text-4xl font-black text-[#102c57] md:text-5xl">Галерея</h1>
-        <div className="mx-auto my-6 h-1 w-20 bg-[#f0c64a]" />
+    <>
+    <section className="legacy-breadcrumb">
+      <h1>Галерея</h1>
+      <p className="mt-8 text-sm">Головна / Галерея</p>
+    </section>
+    <section className="bg-white py-[70px] md:py-[114px]">
+      <div className="mx-auto max-w-[1200px] px-4">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {galleryItems.map(([title, image]) => (
-            <a key={image} href={remote(image)} className="group relative block overflow-hidden bg-[#102c57] shadow-lg">
-              <img src={remote(image)} alt={title} className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-55" />
+              <a key={image} href={image} className="group relative block overflow-hidden bg-[#102c57] shadow-lg">
+                <img src={image} alt={title} className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-55" />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 p-5 font-serif text-lg font-bold text-white">{title}</span>
             </a>
           ))}
         </div>
       </div>
     </section>
+    </>
   );
 }
 
@@ -230,19 +232,23 @@ export function LegacyPageContent({ filepath }: { filepath: string }) {
   const description = details?.description || page.description;
 
   return (
-    <section className="bg-white py-[70px] md:py-[114px]">
+    <>
+    <section className="legacy-breadcrumb">
+      <h1>{title}</h1>
+      <p className="mt-8 text-sm">Головна / {title}</p>
+    </section>
+    <section className="legacy-content bg-white">
       <div className="mx-auto max-w-[1200px] px-4">
-        <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-[#8c6a19]">{page.title}</p>
-        <h1 className="font-serif text-4xl font-black text-[#102c57] md:text-5xl">{title}</h1>
+        <h2 className="font-serif text-3xl font-black md:text-[36px]">{title}</h2>
         <div className="fk-divider my-7" />
-        <p className="max-w-3xl text-lg leading-8 text-slate-700">{description}</p>
+        <p className="max-w-3xl text-[15px] leading-8 text-[#555]">{description}</p>
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {page.links.map(([label, href]) => (
-            <Link key={href} href={href} className="border border-slate-200 bg-[#f7f8fb] p-5 font-bold text-[#102c57] hover:border-[#f0c64a] hover:bg-[#fff8dd]">{label}</Link>
+            <Link key={href} href={href} className="legacy-link-card">{label}</Link>
           ))}
         </div>
-        <p className="mt-10 text-sm text-slate-500">Сторінку адаптовано з попередньої структури сайту. Повний текст можна перенести у TinaCMS як окрему MDX-сторінку.</p>
       </div>
     </section>
+    </>
   );
 }
