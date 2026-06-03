@@ -1,5 +1,4 @@
 import React from "react";
-import type { CSSProperties } from "react";
 import { Metadata } from "next";
 import { Merriweather, Open_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -8,8 +7,6 @@ import VideoDialog from "@/components/ui/VideoDialog";
 
 import "@/styles.css";
 import { TailwindIndicator } from "@/components/ui/breakpoint-indicator";
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const openSans = Open_Sans({
   subsets: ["latin", "cyrillic"],
@@ -38,10 +35,7 @@ export default function RootLayout({
       lang="uk"
       className={cn(openSans.variable, merriweather.variable)}
     >
-      <body
-        className="min-h-screen bg-background font-sans antialiased"
-        style={{ "--legacy-breadcrumb-bg": `url('${basePath}/images/bg-07-1920x660.jpg')` } as CSSProperties}
-      >
+      <body className="min-h-screen bg-background font-sans antialiased">
         <VideoDialogProvider>
           {children}
           <VideoDialog />
