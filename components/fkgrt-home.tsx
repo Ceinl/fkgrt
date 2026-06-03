@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import React from "react";
+import { assetPath } from "@/lib/asset-path";
 import { LatestNewsSection, type NewsPost } from "./blocks/latest-news";
-
-const assetPath = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
 
 const slides = [
   {
@@ -151,7 +150,7 @@ export function FkgrtHome({ latestPosts }: { latestPosts: NewsPost[] }) {
           <div className="fk-divider mx-auto my-7" />
           <div className="grid gap-6 md:grid-cols-3">
             {gallery.map(([title, image]) => (
-              <a key={image} href={image} className="group relative block overflow-hidden bg-[#102c57]">
+              <a key={image} href={assetPath(image)} className="group relative block overflow-hidden bg-[#102c57]">
                 <img src={assetPath(image)} alt={title} className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-55" />
                 <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 p-5 font-serif text-lg font-bold text-white">{title}</span>
               </a>

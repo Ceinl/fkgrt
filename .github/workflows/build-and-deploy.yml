@@ -104,6 +104,7 @@ jobs:
         env:
           NEXT_PUBLIC_TINA_CLIENT_ID: ${{ vars.NEXT_PUBLIC_TINA_CLIENT_ID }}
           NEXT_PUBLIC_TINA_BRANCH: ${{ github.ref_name }}
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
 
       - name: Upload artifact

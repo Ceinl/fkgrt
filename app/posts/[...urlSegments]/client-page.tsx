@@ -9,6 +9,7 @@ import { useLayout } from '@/components/layout/layout-context';
 import { Section } from '@/components/layout/section';
 import { components } from '@/components/mdx-components';
 import ErrorBoundary from '@/components/error-boundary';
+import { assetPath } from '@/lib/asset-path';
 
 const titleColorClasses = {
   blue: 'from-blue-400 to-blue-600 dark:from-blue-300 dark:to-blue-500',
@@ -57,7 +58,7 @@ export default function PostClientPage(props: ClientPostProps) {
                     data-tina-field={tinaField(post.author, 'avatar')}
                     priority={true}
                     className='h-14 w-14 object-cover rounded-full shadow-xs'
-                    src={post.author.avatar}
+                    src={assetPath(post.author.avatar)}
                     alt={post.author.name}
                     width={500}
                     height={500}
@@ -85,7 +86,7 @@ export default function PostClientPage(props: ClientPostProps) {
             <div data-tina-field={tinaField(post, 'heroImg')} className='relative max-w-4xl lg:max-w-5xl mx-auto'>
               <Image
                 priority={true}
-                src={post.heroImg}
+                src={assetPath(post.heroImg)}
                 alt={post.title}
                 className='absolute block mx-auto rounded-lg w-full h-auto blur-2xl brightness-150 contrast-[0.9] dark:brightness-150 saturate-200 opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-hard-light'
                 aria-hidden='true'
@@ -95,7 +96,7 @@ export default function PostClientPage(props: ClientPostProps) {
               />
               <Image
                 priority={true}
-                src={post.heroImg}
+                src={assetPath(post.heroImg)}
                 alt={post.title}
                 width={500}
                 height={500}

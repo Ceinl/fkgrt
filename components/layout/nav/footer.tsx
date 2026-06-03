@@ -4,8 +4,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import React from "react";
-
-const assetPath = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
+import { assetPath } from "@/lib/asset-path";
 
 const usefulLinks = [
   ["Міністерство освіти та науки України", "http://mon.gov.ua/"],

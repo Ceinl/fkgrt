@@ -4,6 +4,7 @@ import { Merriweather, Open_Sans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { VideoDialogProvider } from "@/components/ui/VideoDialogContext";
 import VideoDialog from "@/components/ui/VideoDialog";
+import { assetPath } from "@/lib/asset-path";
 
 import "@/styles.css";
 import { TailwindIndicator } from "@/components/ui/breakpoint-indicator";
@@ -24,8 +25,6 @@ export const metadata: Metadata = {
   description:
     "Фаховий коледж геологорозвідувальних технологій Київського національного університету імені Тараса Шевченка",
 };
-
-const assetPath = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
 
 export default function RootLayout({
   children,

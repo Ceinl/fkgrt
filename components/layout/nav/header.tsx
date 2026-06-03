@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { ChevronDown, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import React from "react";
-
-const assetPath = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
+import { assetPath } from "@/lib/asset-path";
 
 const navGroups = [
   {

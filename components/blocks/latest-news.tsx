@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { format } from "date-fns";
+import { assetPath } from "@/lib/asset-path";
 import { Card } from "../ui/card";
 
 export interface NewsPost {
@@ -42,7 +43,7 @@ export function LatestNewsSection({ posts }: LatestNewsSectionProps) {
                   <Link href={post.url}>
                     <div className="aspect-[1.55] overflow-hidden">
                       <Image
-                        src={post.heroImg}
+                        src={assetPath(post.heroImg)}
                         alt={post.title}
                         width={400}
                         height={225}

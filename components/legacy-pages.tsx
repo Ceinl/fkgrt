@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { assetPath } from "@/lib/asset-path";
 
 const galleryItems = [
   ["Вишиванка - генетичний код української нації", "/upload/iblock/6b2/%D0%94%D0%921.jpg"],
@@ -209,8 +210,8 @@ export function GalleryPageContent() {
       <div className="mx-auto max-w-[1200px] px-4">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {galleryItems.map(([title, image]) => (
-              <a key={image} href={image} className="group relative block overflow-hidden bg-[#102c57] shadow-lg">
-                <img src={image} alt={title} className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-55" />
+              <a key={image} href={assetPath(image)} className="group relative block overflow-hidden bg-[#102c57] shadow-lg">
+                <img src={assetPath(image)} alt={title} className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-55" />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 p-5 font-serif text-lg font-bold text-white">{title}</span>
             </a>
           ))}

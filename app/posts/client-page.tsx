@@ -13,6 +13,7 @@ import { ArrowRight, UserRound } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Section } from "@/components/layout/section";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { assetPath } from "@/lib/asset-path";
 
 interface ClientPostProps {
   data: PostConnectionQuery;
@@ -87,7 +88,7 @@ export default function PostsClientPage(props: ClientPostProps) {
                           <Avatar>
                             {post.author.avatar && (
                               <AvatarImage
-                                src={post.author.avatar}
+                                src={assetPath(post.author.avatar)}
                                 alt={post.author.name}
                                 className="h-8 w-8"
                               />
@@ -128,7 +129,7 @@ export default function PostsClientPage(props: ClientPostProps) {
                           <Image
                             width={533}
                             height={300}
-                            src={post.heroImg}
+                            src={assetPath(post.heroImg)}
                             alt={post.title}
                             className="h-full w-full object-cover transition-opacity duration-200 fade-in hover:opacity-70"
                           />
