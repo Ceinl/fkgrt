@@ -196,7 +196,7 @@
   }
 
   .legacy-breadcrumb {
-    background: linear-gradient(rgba(7, 26, 68, .75), rgba(7, 26, 68, .75)), url('/images/bg-07-1920x660.jpg') center/cover;
+    background: linear-gradient(rgba(7, 26, 68, .75), rgba(7, 26, 68, .75)), var(--legacy-breadcrumb-bg) center/cover;
     color: #fff;
     padding: 70px 16px 60px;
     text-align: center;

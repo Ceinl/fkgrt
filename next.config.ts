@@ -2,10 +2,14 @@ import type { NextConfig } from 'next'
 
 const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1]
 const isGithubPages = process.env.GITHUB_ACTIONS === 'true' && repoName
+const basePath = isGithubPages ? `/${repoName}` : ''
 
 const nextConfig: NextConfig = {
-  basePath: isGithubPages ? `/${repoName}` : '',
-  assetPrefix: isGithubPages ? `/${repoName}/` : '',
+  basePath,
+  assetPrefix: basePath ? `${basePath}/` : '',
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   output: 'export',
   images: {
     unoptimized: true,

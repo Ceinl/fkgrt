@@ -5,6 +5,9 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import React from "react";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const assetPath = (path: string) => `${basePath}${path}`;
+
 const usefulLinks = [
   ["Міністерство освіти та науки України", "http://mon.gov.ua/"],
   ["Державна служба якості освіти України", "https://sqe.gov.ua/"],
@@ -26,8 +29,8 @@ export const Footer = () => {
           <div className="mx-auto max-w-[220px] lg:mx-0">
             <Link href="/" className="inline-block">
               <span className="flex justify-center gap-2 lg:justify-start">
-                <img src="/about/gerb.jpg" alt="КНУ" className="h-[92px] w-[92px] object-contain" />
-                <img src="/images/kgrt.png" alt="КГРТ" className="h-[92px] w-[92px] object-contain" />
+                <img src={assetPath("/about/gerb.jpg")} alt="КНУ" className="h-[92px] w-[92px] object-contain" />
+                <img src={assetPath("/images/kgrt.png")} alt="КГРТ" className="h-[92px] w-[92px] object-contain" />
               </span>
               <span className="mt-6 block font-serif text-[15px] font-black uppercase leading-snug text-[#2d2e2e]">
                 Фаховий коледж геологорозвідувальних технологій
