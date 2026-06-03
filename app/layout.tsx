@@ -25,6 +25,8 @@ export const metadata: Metadata = {
     "Фаховий коледж геологорозвідувальних технологій Київського національного університету імені Тараса Шевченка",
 };
 
+const assetPath = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
+
 export default function RootLayout({
   children,
 }: {
@@ -35,7 +37,10 @@ export default function RootLayout({
       lang="uk"
       className={cn(openSans.variable, merriweather.variable)}
     >
-      <body className="min-h-screen bg-background font-sans antialiased">
+      <body
+        className="min-h-screen bg-background font-sans antialiased"
+        style={{ "--legacy-breadcrumb-bg": `linear-gradient(rgba(7, 26, 68, .75), rgba(7, 26, 68, .75)), url(${assetPath("/images/bg-07-1920x660.jpg")}) center/cover` } as React.CSSProperties}
+      >
         <VideoDialogProvider>
           {children}
           <VideoDialog />

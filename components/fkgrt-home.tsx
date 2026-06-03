@@ -4,6 +4,8 @@ import Link from "next/link";
 import React from "react";
 import { LatestNewsSection, type NewsPost } from "./blocks/latest-news";
 
+const assetPath = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
+
 const slides = [
   {
     image: "/images/slide-02-1920x810.jpg",
@@ -63,7 +65,7 @@ export function FkgrtHome({ latestPosts }: { latestPosts: NewsPost[] }) {
           <div
             key={slide.image}
             className={`absolute inset-0 bg-cover transition-opacity duration-700 ${activeSlide === index ? "opacity-100" : "opacity-0"}`}
-            style={{ backgroundImage: `url(${slide.image})`, backgroundPosition: slide.position }}
+            style={{ backgroundImage: `url(${assetPath(slide.image)})`, backgroundPosition: slide.position }}
           />
         ))}
         <div className="absolute inset-0 bg-black/20" />
@@ -98,7 +100,7 @@ export function FkgrtHome({ latestPosts }: { latestPosts: NewsPost[] }) {
 
       <section className="bg-white py-[70px] md:py-[114px]">
         <div className="mx-auto grid max-w-[1200px] gap-12 px-4 text-center md:grid-cols-[33.333%_58.333%] md:items-center md:justify-between md:text-left">
-          <Link href="/about" className="mx-auto block max-w-[330px]"><img src="/images/kgrt.png" alt="КГРТ" className="w-full" /></Link>
+          <Link href="/about" className="mx-auto block max-w-[330px]"><img src={assetPath("/images/kgrt.png")} alt="КГРТ" className="w-full" /></Link>
           <div>
             <h2 className="font-serif text-[26px] font-black leading-[1.35] text-[#2d2d2d] md:text-[27px]">Декілька слів про фаховий коледж геологорозвідувальних технологій</h2>
             <div className="fk-divider mx-auto my-7 md:mx-0 md:mb-[60px] md:mt-7" />
@@ -115,8 +117,8 @@ export function FkgrtHome({ latestPosts }: { latestPosts: NewsPost[] }) {
       </section>
 
       <section className="relative overflow-hidden bg-[#0f2444] py-[70px] text-white md:py-[114px]">
-        <img src="/images/home-01-846x1002.jpg" alt="Спеціальності" className="absolute left-0 top-0 hidden h-full w-[44%] object-cover lg:block" />
-        <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10" />
+        <img src={assetPath("/images/home-01-846x1002.jpg")} alt="Спеціальності" className="absolute left-0 top-0 hidden h-full w-[44%] object-cover lg:block" />
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `url(${assetPath("/images/pattern.png")})` }} />
         <div className="relative mx-auto grid max-w-[1200px] px-4 lg:grid-cols-[0.95fr_1.05fr]">
           <div />
           <div>
@@ -125,7 +127,7 @@ export function FkgrtHome({ latestPosts }: { latestPosts: NewsPost[] }) {
             <div className="space-y-10">
               {specialties.map(([title, href, image]) => (
                 <Link key={title} href={href} className="group flex min-h-[120px] overflow-hidden bg-white text-[#0f2444] shadow-xl">
-                  <span className="block w-[170px] shrink-0 bg-cover bg-center transition-transform group-hover:scale-105" style={{ backgroundImage: `url(${image})` }} />
+                  <span className="block w-[170px] shrink-0 bg-cover bg-center transition-transform group-hover:scale-105" style={{ backgroundImage: `url(${assetPath(image)})` }} />
                   <span className="flex flex-1 items-center px-7 font-serif text-lg font-bold leading-snug">{title}</span>
                 </Link>
               ))}
@@ -135,7 +137,7 @@ export function FkgrtHome({ latestPosts }: { latestPosts: NewsPost[] }) {
         </div>
       </section>
 
-      <section className="bg-[linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('/video/bg-video-2-lg.jpg')] bg-cover bg-center py-[100px] text-center text-white md:py-[160px]">
+      <section className="bg-cover bg-center py-[100px] text-center text-white md:py-[160px]" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url(${assetPath("/video/bg-video-1-lg.jpg")})` }}>
         <h2 className="font-serif text-3xl font-black md:text-[42px]">Довіряють понад 50000 випускників</h2>
         <p className="mx-auto mt-7 max-w-2xl text-lg text-white/90">Приєднуйтесь до нашої спільноти КГРТ щоб досягти успіху.</p>
         <Link href="/vstup" className="fk-btn-primary mt-12 inline-block">Почати</Link>
@@ -150,7 +152,7 @@ export function FkgrtHome({ latestPosts }: { latestPosts: NewsPost[] }) {
           <div className="grid gap-6 md:grid-cols-3">
             {gallery.map(([title, image]) => (
               <a key={image} href={image} className="group relative block overflow-hidden bg-[#102c57]">
-                <img src={image} alt={title} className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-55" />
+                <img src={assetPath(image)} alt={title} className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105 group-hover:opacity-55" />
                 <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 p-5 font-serif text-lg font-bold text-white">{title}</span>
               </a>
             ))}

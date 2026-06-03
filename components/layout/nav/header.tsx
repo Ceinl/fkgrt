@@ -4,6 +4,8 @@ import Link from "next/link";
 import { ChevronDown, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import React from "react";
 
+const assetPath = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
+
 const navGroups = [
   {
     label: "Коледж",
@@ -87,8 +89,8 @@ export const Header = () => {
       <div className="mx-auto flex max-w-[1200px] items-start justify-center px-4 pb-[24px] pt-[28px] text-center">
         <Link href="/" className="min-w-0">
           <span className="mb-[18px] flex justify-center gap-3 md:gap-4">
-            <img src="/images/kgrt.png" alt="КГРТ" className="h-[88px] w-[88px] object-contain md:h-[102px] md:w-[102px]" />
-            <img src="/about/gerb.jpg" alt="КНУ" className="h-[88px] w-[88px] object-contain md:h-[102px] md:w-[102px]" />
+            <img src={assetPath("/images/kgrt.png")} alt="КГРТ" className="h-[88px] w-[88px] object-contain md:h-[102px] md:w-[102px]" />
+            <img src={assetPath("/about/gerb.jpg")} alt="КНУ" className="h-[88px] w-[88px] object-contain md:h-[102px] md:w-[102px]" />
           </span>
           <span>
             <span className="block font-serif text-sm italic uppercase leading-none text-[#9a9a9a]">ВІДОКРЕМЛЕНИЙ СТРУКТУРНИЙ ПІДРОЗДІЛ</span>

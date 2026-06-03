@@ -6,6 +6,9 @@ const isGithubPages = process.env.GITHUB_ACTIONS === 'true' && repoName
 const nextConfig: NextConfig = {
   basePath: isGithubPages ? `/${repoName}` : '',
   assetPrefix: isGithubPages ? `/${repoName}/` : '',
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGithubPages ? `/${repoName}` : '',
+  },
   output: 'export',
   images: {
     unoptimized: true,
